@@ -10,12 +10,8 @@
 \usepackage{csquotes}
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{dsfont}       %Stroke Fonts for Number Sets
-\usepackage{cases}
 
 \def\Pset{\mathcal{P}}
 \def\Sset{\mathcal{S}}
@@ -42,7 +38,9 @@ implemented in Python3 with support for internationalization. %and is available 
 \textbf{Keywords:} Software benchmarking. Performance profile. Python.
 \end{abstract}
 
-\section*{Introduction} 
+\section*{(1) Overview}
+
+\subsection*{Introduction} 
 
 The Performance Profile of a solver is the cumulative distribution
     function of a performance metric, e.g., CPU time, number of functions
@@ -52,7 +50,7 @@ The Performance Profile of a solver is the cumulative distribution
     \in \Pset$ and solver $s \in \Sset$, we define $t_{ps}$ as the cost
     required to solve problem $p$ by solver $s$ and
     \begin{align*}
-      r_{ps} = \frac{t_{ps}}{\min\{t_{ps}: s \in S\}}
+      r_{ps} = \frac{t_{ps}}{\min\{t_{ps}: s \in \Sset\}}
     \end{align*}
     as the performance ratio of solver $s$ for the problem $p$ when compared
     with the best performance by any solver on this problem.
@@ -68,68 +66,62 @@ The Performance Profile of a solver is the cumulative distribution
 
     EXPLAIN WHY WE WANTED TO DEVELOP PERPROF-PY
 
-\section*{Implementation and architecture}
+\subsection*{Implementation and architecture}
 How the software was implemented, with details of the architecture where relevant. Use of relevant UML diagrams may be appropriate. Please also describe any variants and associated implementation differences.
 
-\section*{Quality control }
+\subsection*{Quality control }
 Detail the level of testing that has been carried out on the code (e.g. unit, functional, load etc.), and in which environments. 
 
-\section*{(2) Availability }
+\section*{(2) Availability}
 
-\paragraph*{Operating system}
-Please include minimum version compatibility.
+\subsection*{Operating system}
+Plataform independent.
 
-\paragraph*{Programming language}
-Please include minimum version compatibility.
+\subsection*{Programming language}
+python3.
 
-\paragraph*{Additional system requirements}
+\subsection*{Additional system requirements}
 E.g. memory, disk space, processor, input devices, output devices.
 
-\paragraph*{Dependencies}
+\subsection*{Dependencies}
 E.g. libraries, frameworks, incl. minimum version compatibility.
 
-\paragraph*{List of contributors}
+\subsection*{List of contributors}
 Please list anyone who helped to create the software (who may also not be an author of this paper), including their roles and affiliations.
 
-\paragraph*{Software location:}
-Archive (e.g. institutional repository, general repository) (required) 
+\subsection*{Software location:}
+Archive  
 
-Name: The name of the archive
+\paragraph{Name:} perprof-py
 
-Persistent identifier: e.g. DOI, handle, PURL, etc.
+\paragraph{Identifier:} \url{https://github.com/lpoo/perprof-py} 
 
-Licence: Open license under which the software is licensed
+\paragraph{Licence:} GPL (General Public License) Version 3
 
-Publisher: Name of the person who deposited the software
+\paragraph{Date published:} 24/03/14
 
-Date published: dd/mm/yy
+\paragraph{Publisher:} Name of the person who deposited the software
 
-Code repository (e.g. SourceForge, GitHub etc.) (optional) 
+\paragraph{Date published:} 24/03/14
 
-Name: The name of the code repository
+\paragraph{Code repository} 
 
-Identifier: The identifier (or URI) used by the repository 
 
-Licence: Open license under which the software is licensed
+\paragraph{Name:} GitHub
 
-Date published: dd/mm/yy
+\paragraph{Identifier:} \url{https://github.com/lpoo/perprof-py} 
 
-Emulation environment 
+\paragraph{Licence:} GPL (General Public License) Version 3
 
-Name: The name of the emulation environment
+\paragraph{Date published:} 24/03/14
 
-Identifier: The identifier (or URI) used by the emulator
-
-Licence: Open license under which the software is licensed here
-
-Date published: dd/mm/yy
 
 Language
 
 Language of repository, software and supporting files
 
 
-
+\section*{(3) Reuse potential}
 
 \printbibliography
 \end{document}
