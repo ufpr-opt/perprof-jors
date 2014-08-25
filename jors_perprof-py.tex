@@ -69,7 +69,29 @@ The Performance Profile of a solver is the cumulative distribution
 \subsection*{Implementation and architecture}
 How the software was implemented, with details of the architecture where relevant. Use of relevant UML diagrams may be appropriate. Please also describe any variants and associated implementation differences.
 
-\subsection*{Quality control }
+\subsection*{Input}
+    Each solver to be used in the benchmark must have a file like:
+
+    \begin{verbatim}
+---
+YAML information
+---
+Problem01 exit01 time01
+Problem02 exit02 time02
+    \end{verbatim}
+
+    In the YAML information you can set the name of the solver, and some
+    flags for perprof-py.
+    Each line beyond that has 3 columns that mean, in order:
+    \begin{itemize}
+      \item The name of the problem;
+      \item Exit flag;
+      \item Elapsed time.
+    \end{itemize}
+
+\subsection*{Parsing process and output}
+
+\subsection*{Quality control}
 Detail the level of testing that has been carried out on the code (e.g. unit, functional, load etc.), and in which environments. 
 
 \section*{(2) Availability}
@@ -125,87 +147,3 @@ Language of repository, software and supporting files
 
 \printbibliography
 \end{document}
-
-
-  \begin{posterbox}[column=0,below=auto,name=perprof]{perprof-py}
-    We implemented a free/open software that generates performance profiles using data
-    provided by the user in a friendly manner. This software produces graphics in PDF
-    using LaTeX with PGF/TikZ and pgfplots packages,
-    in PNG using matplotlib and can also be easily extended to
-    use other plot libraries. The software is implemented in Python3 with
-    support for internationalization and is available at
-    \url{https://github.com/lpoo/perprof-py} under GPLv3 license.
-  \end{posterbox}
-
-  \begin{posterbox}[column=1]{Features}
-    Some of perprof-py features are:
-    \begin{itemize}[noitemsep]
-      \item high quality output (in more than one format);
-      \item lots of native options/filters;
-      \item input processing to limit solver minimum and maximum costs and set
-        of problems;
-      \item native internationalization support.
-    \end{itemize}
-
-    \begin{center}
-      \begin{tabular}{cc}
-        \includegraphics[width=0.45\linewidth,height=108pt]{abc-bw-semilog.pdf} &
-        \includegraphics[width=0.45\linewidth,height=108pt]{abc.pdf} \\
-        Black and white & Linear scale \\
-        \includegraphics[width=0.45\linewidth,height=108pt]{abc-100.pdf} &
-        \includegraphics[width=0.45\linewidth,height=108pt]{abc-hs.pdf} \\
-        Performance ratio limit & Subset (Hock-Schittkowski)
-      \end{tabular}
-    \end{center}
-
-    Besides the previous features, the package can be easily used in a range
-    of external tools that support Python.
-  \end{posterbox}
-
-  \begin{posterbox}[column=1,below=auto]{Input file}
-    Each solver to be used in the benchmark must have a file like:
-
-    \begin{lstlisting}
-YAML information
-Problem01 exit01 time01
-Problem02 exit02 time02
-    \end{lstlisting}
-
-    In the YAML information you can set the name of the solver, and some
-    flags for perprof-py.
-    Each line beyond that has 3 columns that mean, in order:
-    \begin{itemize}[noitemsep]
-      \item The name of the problem;
-      \item Exit flag;
-      \item Elapsed time.
-    \end{itemize}
-  \end{posterbox}
-
-  \begin{posterbox}[column=1,below=auto]{Future works}
-    Some of our next improvements consist of:
-    \begin{itemize}[noitemsep]
-      \item add metadata support and also support data profiles as defined by
-        \textcite{More2009};
-      \item add support for the analysis of the objective value, and the primal and
-        dual infeasibilities;
-      \item add more backends and more output formats.
-    \end{itemize}
-  \end{posterbox}
-
-  \begin{posterbox}[column=1,below=auto]{References}
-    \printbibliography[heading=none]
-  \end{posterbox}
-
-  \begin{posterbox}[column=0,span=2,below=auto,height=bottom,
-    boxshade=none,textborder=none,headerborder=none,headershade=plain,
-  headerColorOne=bgcolor2, boxheaderheight=0cm]{}
-  \begin{center}
-    \begin{tabular}{cl}
-      \multirow{3}{*}{\includegraphics[height=24pt]{figures/cc-by}} & \\
-                                                                    & \Large
-      This work is licensed under a
-       Creative Commons Attribution 3.0 Unported License.
-    \end{tabular}
-  \end{center}
-  \end{posterbox}
-\end{poster}
