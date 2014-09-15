@@ -1,6 +1,6 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenx}
-\usepackage{cmap} 
+\usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage[top=3cm,bottom=3cm,outer=3.2cm,inner=3.2cm]{geometry}
@@ -18,31 +18,41 @@
 
 \begin{document}
 \title{Perprof-py: a {P}ython package for performance profile}
-\author{ Abel Soares Siqueria\thanks{IMECC/Unicamp}  \and Raniere Gaia Costa da Silva\thanks{IMECC/Unicamp.} \and Luiz-Rafael Santos\thanks{IMECC/Unicamp}}
-\date{Technical Report \\ Operational Research and Optimization Laboratory (LPOO) \\ IMECC/Unicamp \\ Campinas, Brazil \\ \today}
+\author{ Abel Soares Siqueria\thanks{IMECC/Unicamp}  \and Raniere Gaia Costa da
+  Silva\thanks{IMECC/Unicamp.} \and Luiz-Rafael Santos\thanks{IMECC/Unicamp}}
+\date{Technical Report \\ Operational Research and Optimization Laboratory
+  (LPOO) \\ IMECC/Unicamp \\ Campinas, Brazil \\ \today}
 \maketitle
 
 \begin{abstract}
- A very important part of research in optimization field is to benchmark optimization packages,
-not only because it is one of the ways to compare solvers, but also because it allows one to uncover
-deficiencies that could be overlooked while developing a new solver. During
-benchmarking, one can obtain a large amount of  informations, like CPU time, number of functions
-evaluations, number of iterations and much more. These informations, if presented
-as tables, can be difficult to be analyzed, due, for instance, to large amount of data.
-Therefore, researchers started testing and developing tools to better process and understand optimization benchmark 
-data. One of the most widespread tools is \emph{Performance Profile} graphics
-proposed by \textcite{Dolan:2002du}. In this context, we implemented a free software that makes Performance Profile using data provided by user in a friendly manner. This software produces graphics in PDF using \LaTeX with PGF/TikZ~\cite{TikZ} and \texttt{pgfplots}~\cite{pgfplots} packages, and in PNG using \texttt{matplotlib}~\cite{Hunter:2007}
-and it can also be easily extended to be used with other plots libraries. The software is
-implemented in Python3 with support for internationalization and is under GPL (General Public License) Version 3. %and is available on \url{https://github.com/lpoo/perprof-py}.
+    A very important part of research in optimization field is to benchmark
+    optimization packages, not only because it is one of the ways to compare
+    solvers, but also because it allows one to uncover deficiencies that could
+    be overlooked while developing a new solver. During benchmarking, one can
+    obtain a large amount of  informations, like CPU time, number of functions
+    evaluations, number of iterations and much more. These informations, if
+    presented as tables, can be difficult to be analyzed, due, for instance, to
+    large amount of data.  Therefore, researchers started testing and developing
+    tools to better process and understand optimization benchmark data. One of
+    the most widespread tools is \emph{Performance Profile} graphics proposed by
+    \textcite{Dolan:2002du}. In this context, we implemented a free software
+    that makes Performance Profile graphics using data provided by user in a
+    friendly manner. This software produces graphics in PDF using \LaTeX with
+    PGF/TikZ~\cite{TikZ} and \texttt{pgfplots}~\cite{pgfplots} packages, and in
+    PNG using \texttt{matplotlib}~\cite{Hunter:2007} and it can also be easily
+    extended to be used with other plots libraries. The software is implemented
+    in Python3 with support for internationalization and is under GPL (General
+    Public License) Version 3.
+    %and is available on \url{https://github.com/lpoo/perprof-py}.
 
-\textbf{Keywords:} Software benchmarking.  Optimization. Performance profile. Python 3.
+    \textbf{Keywords:} Software benchmarking.  Optimization. Performance profile. Python 3.
 \end{abstract}
 
 \section*{(1) Overview}
 
-\subsection*{Introduction} 
+\subsection*{Introduction}
 
-The Performance Profile of a solver is the cumulative distribution
+    The Performance Profile of a solver is the cumulative distribution
     function of a performance metric, e.g., CPU time, number of functions
     evaluations, number of iterations, or others, that we will call \emph{cost}.
 
@@ -55,32 +65,46 @@ The Performance Profile of a solver is the cumulative distribution
     as the performance ratio of solver $s$ for the problem $p$ when compared
     with the best performance by any solver on this problem.
 
-    \textcite{Dolan:2002du} defines the probability for solver $s \in \Sset$ to solve one
-    problem within a factor $\tau \in \mathds{R}$ of the best performance
-    ratio as the function
+    \textcite{Dolan:2002du} defines the probability for solver $s \in \Sset$ to
+    solve one problem within a factor $\tau \in \mathds{R}$ of the best
+    performance ratio as the function
     \begin{align*}
       \rho_s(\tau) = \frac{| \{p \in \Pset: r_{ps} \leq \tau\} |}{| \Pset |}
     \end{align*}
-     For a given $\tau$, the best solver is the one with the highest
-    value for $\rho_s(\tau)$.
+    For a given $\tau$, the best solver is the one with the highest value for
+    $\rho_s(\tau)$.
 
-    \subsection*{Motivation}
-    To make easy the reproduction of  a data set analysis, such as the  benchmarking of
-    solvers analysis provided by \citeauthor{Dolan:2002du}'s performance profile, it is important to have an open source tool that handle the production of plots. 
+\subsection*{Motivation}
 
+    To facilitate the reproduction of data set analysis, such as the
+    benchmarking of solvers analysis provided by \citeauthor{Dolan:2002du}'s
+    performance profile, it is important to have an open source tool that handle
+    the production of plots.
 
-    Performance profile has been, over the years, the most used benchmark comparison tool used in optimization. Nevertheless, the production of such analysis is sometimes a task that can lead a researcher to waste a lot of time and effort that should have been spent in developing the solver itself, and not in creating the comparison plots. The main goal of our work was to create  a straightforward  tool that would allow one to create performance profile pictures in a fast and easy manner. 
+    Performance profile has been, over the years, the most used benchmark
+    comparison tool used in optimization. Nevertheless, the production of such
+    analysis is sometimes a task that can lead a researcher to waste a lot of
+    time and effort that should have been spent in developing the solver itself,
+    and not in creating the comparison plots. The main goal of our work was to
+    create  a straightforward  tool that would allow one to create performance
+    profile pictures in a fast and easy manner.
 
-    Moreover,  we wanted to allow LaTeX users, a group in which almost all optimization community is included,  to   generate performance profile plots  within LaTeX environment, and thus to get a better typographic result other than simple including raster  images.
+    Moreover,  we wanted to allow LaTeX users, a group in which almost all
+    optimization community is included,  to   generate performance profile plots
+    within LaTeX environment, and thus to get a better typographic result other
+    than simple including raster  images.
 
-    With these two main goals in mind, we developed and implemented perprof-py in python3 with internationalization features and direct LaTeX integration.
-
-     
+    With these two main goals in mind, we developed and implemented perprof-py
+    in python3 with internationalization features and direct LaTeX integration.
 
 \subsection*{Implementation and architecture}
-How the software was implemented, with details of the architecture where relevant. Use of relevant UML diagrams may be appropriate. Please also describe any variants and associated implementation differences.
+
+    How the software was implemented, with details of the architecture where
+    relevant. Use of relevant UML diagrams may be appropriate. Please also
+    describe any variants and associated implementation differences.
 
 \subsection*{Input}
+
     Each solver to be used in the benchmark must have a file like:
 
     \begin{verbatim}
@@ -103,56 +127,62 @@ Problem02 exit02 time02
 \subsection*{Parsing process and output}
 
 \subsection*{Quality control}
-Detail the level of testing that has been carried out on the code (e.g. unit, functional, load etc.), and in which environments. 
+
+    Detail the level of testing that has been carried out on the code (e.g.
+    unit, functional, load etc.), and in which environments.
 
 \section*{(2) Availability}
 
 \subsection*{Operating system}
-Plataform independent.
+
+    Plataform independent.
 
 \subsection*{Programming language}
-python3.
+
+    python3.
 
 \subsection*{Additional system requirements}
-E.g. memory, disk space, processor, input devices, output devices.
+
+    E.g. memory, disk space, processor, input devices, output devices.
 
 \subsection*{Dependencies}
-E.g. libraries, frameworks, incl. minimum version compatibility.
+
+    E.g. libraries, frameworks, incl. minimum version compatibility.
 
 \subsection*{List of contributors}
-Please list anyone who helped to create the software (who may also not be an author of this paper), including their roles and affiliations.
+
+    Please list anyone who helped to create the software (who may also not be an
+    author of this paper), including their roles and affiliations.
 
 \subsection*{Software location:}
-Archive  
 
-\paragraph{Name:} perprof-py
+    Archive
 
-\paragraph{Identifier:} \url{https://github.com/lpoo/perprof-py} 
+    \paragraph{Name:} perprof-py
 
-\paragraph{Licence:} GPL (General Public License) Version 3
+    \paragraph{Identifier:} \url{https://github.com/lpoo/perprof-py}
 
-\paragraph{Date published:} 24/03/14
+    \paragraph{Licence:} GPL (General Public License) Version 3
 
-\paragraph{Publisher:} Name of the person who deposited the software
+    \paragraph{Date published:} 24/03/14
 
-\paragraph{Date published:} 24/03/14
+    \paragraph{Publisher:} Name of the person who deposited the software
 
-\paragraph{Code repository} 
+    \paragraph{Date published:} 24/03/14
 
+    \paragraph{Code repository}
 
-\paragraph{Name:} GitHub
+    \paragraph{Name:} GitHub
 
-\paragraph{Identifier:} \url{https://github.com/lpoo/perprof-py} 
+    \paragraph{Identifier:} \url{https://github.com/lpoo/perprof-py}
 
-\paragraph{Licence:} GPL (General Public License) Version 3
+    \paragraph{Licence:} GPL (General Public License) Version 3
 
-\paragraph{Date published:} 24/03/14
+    \paragraph{Date published:} 24/03/14
 
+    Language
 
-Language
-
-Language of repository, software and supporting files
-
+    Language of repository, software and supporting files
 
 \section*{(3) Reuse potential}
 
