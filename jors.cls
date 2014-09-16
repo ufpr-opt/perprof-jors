@@ -18,10 +18,31 @@
 
 \LoadClass[a4paper]{article}
 
-\renewenvironment{abstract}{\footnotesize \parindent .2in \ignorespaces}
+\renewenvironment{abstract}{\normalsize \parindent .2in \ignorespaces}
   {\par\vspace{1pt}}
 
+\RequirePackage{titlesec}
+\RequirePackage{xcolor}
 
 \newcommand{\twrule}{\rule{\textwidth}{1pt}\vspace{5pt} }
+\renewcommand*{\familydefault}{\sfdefault}
+\pagestyle{empty}
+
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{0pt}
+\titlespacing*{\subsubsection}{0pt}{\baselineskip}{0pt}
+
+\newcommand{\colorsection}[1]
+  {\colorbox{cyan!50!white}{\parbox{\dimexpr\columnwidth-2\fboxsep}{(\thesection) #1}}}
+\newcommand{\bfandit}[1]{\textbf{\textit{#1}}}
+
+\titleformat{\section}{\normalsize \bf}{}{0pt}{\colorsection}
+\titleformat{name=\section,numberless}{\normalsize \bf}{}{0pt}{}
+\titleformat{\subsection}{\normalsize \bf}{}{0pt}{}
+\titleformat{\subsubsection}{\normalsize \bf}{}{0pt}{}
+\titleformat{\paragraph}{\normalsize}{}{0pt}{\bfandit}
+
+\newcommand{\Archive}{\subsection*{Archive}\vspace{\baselineskip}}
+\newcommand{\CodeRepository}{\subsection*{Code Repository}\vspace{\baselineskip}}
 
 \endinput

@@ -3,7 +3,7 @@
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[top=3cm,bottom=3cm,outer=3.2cm,inner=3.2cm]{geometry}
+\usepackage[top=2cm,bottom=2cm,outer=2.2cm,inner=2.2cm]{geometry}
 \usepackage[backend=biber,sortcites=true,doi=false,url=false,firstinits=true,hyperref,maxbibnames=9,maxcitenames=3,sorting=nyt]{biblatex}
 
 \addbibresource{refs.bib}
@@ -21,28 +21,41 @@
 
 \begin{document}
 
-\sffamily
 \twocolumn[
-  \begin{flushleft}
-    {\bf \large SOFTWARE METAPAPER} \vspace{9pt} \\
-    {\bf \LARGE \mytitle } \\
-  \end{flushleft}
-  \twrule
-  \begin{abstract}
-    \input{abstract}
-  \end{abstract}
-  \twrule
-  {\bf Keywords: }{\mykeywords}
-  \twrule
+  \begin{@twocolumnfalse}
+    \begin{minipage}{0.3\textwidth}
+      \rule{100pt}{12pt} % Logo placeholder
+    \end{minipage}
+    \begin{minipage}{0.65\textwidth}
+      \scriptsize
+      \authorshort \ \pubyear \ \mytitle. Journal of Open Research Software,
+      \pubnumber: \pubed, DOI: \url{\pubdoi}
+    \end{minipage}
+    \twrule
+    \begin{flushleft}
+      {\bf \large SOFTWARE METAPAPER} \vspace{9pt} \\
+      {\bf \LARGE \mytitle } \\
+      {\large \myauthor}
+    \end{flushleft}
+    \twrule
+    \begin{abstract}
+      \input{abstract}
+    \end{abstract}
+    \twrule
+    \begin{flushleft}
+      {\bf Keywords: }{\mykeywords}
+    \end{flushleft}
+    \twrule
+  \end{@twocolumnfalse}
 ]
 
-\section*{(1) Overview}
+\section{Overview}
 \input{overview}
 
-\section*{(2) Availability}
+\section{Availability}
 \input{availability}
 
-\section*{(3) Reuse potential}
+\section{Reuse potential}
 \input{reuse}
 
 \printbibliography
