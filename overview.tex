@@ -4,16 +4,20 @@
     function of a performance metric, e.g., CPU time, number of functions
     evaluations, number of iterations, or others, that we will call \emph{cost}.
 
-    Given a set $\Pset$ of problems and a set $\Sset$ of solvers, for each problem $p
-    \in \Pset$ and solver $s \in \Sset$, we define $t_{ps}$ as the cost
-    required to solve problem $p$ by solver $s$ and
+    It was first described by \textcite{Dolan:2002du} and is presented as a 
+    graphic that shows the relative performance profile of different solvers, 
+    according to a chosen metric, for a given set of problem instances.
+
+    Given a set $\Pset$ of problems and a set $\Sset$ of solvers, for each 
+    problem $p \in \Pset$ and solver $s \in \Sset$, we define $t_{ps}$ as the  
+    cost required to solve problem $p$ by solver $s$ and
     \begin{align*}
       r_{ps} = \frac{t_{ps}}{\min\{t_{ps}: s \in \Sset\}}
     \end{align*}
     as the performance ratio of solver $s$ for the problem $p$ when compared
     with the best performance by any solver on this problem.
 
-    \textcite{Dolan:2002du} defines the probability for solver $s \in \Sset$ to
+    \citeauthor{Dolan:2002du} define the probability of a solver $s \in \Sset$ to
     solve one problem within a factor $\tau \in \mathds{R}$ of the best
     performance ratio as the function
     \begin{align*}
@@ -37,13 +41,13 @@
     create  a straightforward  tool that would allow one to create performance
     profile pictures in a fast and easy manner.
 
-    Moreover,  we wanted to allow LaTeX users, a group in which almost all
+    Moreover,  we wanted to allow \LaTeX\ users, a group in which almost all
     optimization community is included,  to   generate performance profile plots
-    within LaTeX environment, and thus to get a better typographic result other
+    within \LaTeX\ environment, and thus to get a better typographic result other
     than simple including raster  images.
 
     With these two main goals in mind, we developed and implemented perprof-py
-    in python3 with internationalization features and direct LaTeX integration.
+    in python3 with internationalization features and direct \LaTeX\ integration.
 
 \subsection*{Implementation and architecture}
 
