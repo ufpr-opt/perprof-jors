@@ -51,9 +51,21 @@
 
 \subsection*{Implementation and architecture}
 
-    How the software was implemented, with details of the architecture where
-    relevant. Use of relevant UML diagrams may be appropriate. Please also
-    describe any variants and associated implementation differences.
+    The software was implemented as a Python 3 package, to allow users to work
+    internally on the code. This allows, for instance, the creation of a GUI
+    as a different software. We also created a command line interface to use the
+    software.
+
+    The implementation is very straight forward:
+    \begin{enumerate}
+      \item First the parse the options passed as arguments, creating a
+        structure with all that information;
+      \item We then parse and process the input files, using the definition
+        of the performance function to create the data to be plotted;
+      \item We then use the desired backend to plot the data, using direct
+        matplotlib commands to create a PNG image (among other types), or
+        creating and compiling a \Latex file to create PDF image.
+    \end{enumerate}
 
 \subsection*{Input}
 
