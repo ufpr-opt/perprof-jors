@@ -90,6 +90,43 @@ Problem02 exit02 time02
 
 \subsection*{Parsing process and output}
 
+    To use perprof-py, the user needs to issue a command of the type
+\begin{verbatim}
+$ perprof OPTIONS BACKEND FILES
+\end{verbatim}
+    where
+    \begin{itemize}
+      \item FILES are the input files described in the previous section, and at
+        least two files are required;
+      \item BACKEND is one of the options \verb+--tikz+, \verb+--mp+ or
+        \verb+--raw+, which represents whether the user wants to use
+        Tikz/Pgfplots, MatplotLib or simply printing the performance ratios,
+        respectivly;
+      \item OPTIONS are varied arguments that can be passed to perprof to
+        customize the graphics, or modify the performance functions. Some
+        noteworthy options are
+        \begin{itemize}
+          \item \verb+--semilog+: use a logarithmic scale for the abscissa;
+          \item \verb+--success STR+: \verb+STR+ is a comma separated string
+            of keys to be considered as success by the algorithm;
+          \item \verb+--black-and-white+: differentiate the plots using only
+            line styles, and paint them in black;
+          \item \verb+--subset FILE+: consider only the problems in the file
+            \verb+FILE+ when creating the performance functions.
+        \end{itemize}
+    \end{itemize}
+    The Figure \ref{fig:examples} shows some examples of the performance profile
+    graphics.
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[width=0.4\textwidth]{plots/abc.pdf}
+      \includegraphics[width=0.4\textwidth]{plots/abc-semilog.pdf}
+      \includegraphics[width=0.4\textwidth]{plots/abc-semilog-bw.pdf}
+      \includegraphics[width=0.4\textwidth]{plots/abc-semilog-hs.pdf}
+      \caption{Examples of performance profiles}
+      \label{fig:examples}
+    \end{figure}
+
 \subsection*{Quality control}
 
     The code is tested using unit tests that verify if wrong input information
