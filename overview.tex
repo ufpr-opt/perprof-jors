@@ -62,9 +62,7 @@
         structure with all that information;
       \item We then parse and process the input files, using the definition
         of the performance function to create the data to be plotted;
-      \item We then use the desired backend to plot the data, using direct
-        matplotlib commands to create a PNG image (among other types), or
-        creating and compiling a \LaTeX\ file to create PDF image.
+      \item We then use the desired backend to plot the data.
     \end{enumerate}
 
 \subsection*{Input}
@@ -85,7 +83,7 @@ Problem02 exit02 time02
     \begin{itemize}
       \item The name of the problem;
       \item Exit flag;
-      \item Elapsed time.
+      \item Cost measure, such as elapsed time.
     \end{itemize}
 
 \subsection*{Parsing process and output}
@@ -115,16 +113,32 @@ $ perprof OPTIONS BACKEND FILES
             \verb+FILE+ when creating the performance functions.
         \end{itemize}
     \end{itemize}
-    The Figure \ref{fig:examples} shows some examples of the performance profile
-    graphics.
+    The Figures \ref{fig:example1}-\ref{fig:example4} show some examples of the
+    performance profile graphics.
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.4\textwidth]{plots/abc.pdf}
+      \caption{Example of performance profile with default options.}
+      \label{fig:example1}
+    \end{figure}
+    \begin{figure}[!ht]
+      \centering
       \includegraphics[width=0.4\textwidth]{plots/abc-semilog.pdf}
+      \caption{Example of performance profile with semilog option.}
+      \label{fig:example2}
+    \end{figure}
+    \begin{figure}[!ht]
+      \centering
       \includegraphics[width=0.4\textwidth]{plots/abc-semilog-bw.pdf}
+      \caption{Example of performance profile with semilog and black and white
+        options.}
+      \label{fig:example3}
+    \end{figure}
+    \begin{figure}[!ht]
+      \centering
       \includegraphics[width=0.4\textwidth]{plots/abc-semilog-hs.pdf}
-      \caption{Examples of performance profiles}
-      \label{fig:examples}
+      \caption{Example of performance profile with semilog and subset options.}
+      \label{fig:example4}
     \end{figure}
 
 \subsection*{Quality control}
