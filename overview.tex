@@ -47,14 +47,22 @@
     than simple including raster  images.
 
     With these two main goals in mind, we developed and implemented perprof-py
-    in python3 with internationalization features and direct \LaTeX\ integration.
+    in Python 3 with internationalization features and direct \LaTeX\ integration.
 
 \subsection*{Implementation and architecture}
 
-    The software was implemented as a Python 3 package, to allow users to work
-    internally on the code. This allows, for instance, the creation of a GUI
-    as a different software. We also created a command line interface to use the
-    software.
+    The software was implemented as a Python 3 package
+    and organized, see Figure~\ref{fig:uml},
+    to allow addition of new backends.
+    Users have a command line interface to use out of the box
+    but can also use the package in their own software.
+
+    \begin{figure}[!htb]
+      \centering
+      \includegraphics[width=0.45\textwidth]{uml/uml.pdf}
+      \caption{UML of perprof}
+      \label{fig:uml}
+    \end{figure}
 
     The implementation is very straight forward:
     \begin{enumerate}
@@ -64,10 +72,6 @@
         of the performance function to create the data to be plotted;
       \item We then use the desired backend to plot the data.
     \end{enumerate}
-
-    \begin{center}
-      \includegraphics[width=0.45\textwidth]{uml/uml.pdf}
-    \end{center}
 
 \subsection*{Input}
 
@@ -150,7 +154,5 @@ $ perprof OPTIONS BACKEND FILES
 
     The code is tested using unit tests that verify if wrong input information
     is captured. These tests are run automatically on Travis CI
-    \cite{url:travis}, for python 3.3 and 3.4.
-    In addition, we verified on the stable releases that the code generates the
-    desired graphics. This part of the testing must be manual.
-
+    \cite{url:travis}, for Python 3.3 and 3.4.
+    Functional tests related to the graphics must be done manually.
