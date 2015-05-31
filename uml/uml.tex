@@ -1,0 +1,60 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{tikz}
+\usepackage{tikz-uml}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{umlpackage}[x=0,y=0]{perprof-py}
+    \umlclass[x=0,y=0,name=Pdata]
+      {perprof.prof.Pdata}
+      { already\_scaled : bool \\
+        background \\
+        black\_and\_white \\
+        cache \\
+        data : dict \\
+        force \\
+        number\_problems \\
+        output\_format \\
+        page\_background \\
+        pdf\_verbose \\
+        pgfplot\_version \\
+        ppsbt : dict \\
+        problems : set \\
+        semilog \\
+        solvers \\
+        tau \\
+        times }
+      { get\_set\_problems() \\
+        set\_set\_problems() \\
+        plot() \\
+        scale() \\
+        set\_percent\_problems\_solver\_by\_time() }
+    \umlclass[x=-5,y=-8,name=bokeh]
+      {perprof.bokeh.Profiler}
+      { axis\_lang \\
+        output : str \\
+        output\_format } 
+      { plot() }
+    \umlclass[x=0,y=-8,name=matplotlib]
+      {perprof.matplotlib.Profiler}
+      { axis\_lang \\
+        background \\
+        output : str \\
+        output\_format } 
+      { plot() }
+    \umlclass[x=5,y=-8,name=tikz]
+      {perprof.tikz.Profiler}
+      { axis\_lang \\
+        output : str, bytes \\
+        output\_format \\
+        standalone \\
+        tau } 
+      { plot() }
+    \umlinherit{bokeh}{Pdata}
+    \umlinherit{matplotlib}{Pdata}
+    \umlinherit{tikz}{Pdata}
+  \end{umlpackage}
+\end{tikzpicture}
+\end{document}
