@@ -52,10 +52,10 @@
 \subsection*{Implementation and architecture}
 
     The software was implemented as a Python 3 package
-    and organized, see Figure~\ref{fig:uml},
-    to allow addition of new backends.
-    Users have a command line interface to use out of the box
-    but can also use the package in their own software.
+    and organized
+    to allow addition of new backends --  see Figure~\ref{fig:uml}.
+    Users have a command line interface to use out of the box,
+    however one can also use the package in their own software.
 
     \begin{figure}[!htb]
       \centering
@@ -64,18 +64,18 @@
       \label{fig:uml}
     \end{figure}
 
-    The implementation is very straight forward:
+    The implementation is very straightforward. The algorithm:
     \begin{enumerate}
-      \item First the parse the options passed as arguments, creating a
-        structure with all that information;
-      \item We then parse and process the input files, using the definition
+      \item parses the options passed as arguments, creating a
+        structure with all the information;
+      \item parses and process the input files, using the definition
         of the performance function to create the data to be plotted;
-      \item We then use the desired backend to plot the data.
+      \item uses the chosen backend to plot the data.
     \end{enumerate}
 
 \subsection*{Input}
 
-    Each solver to be used in the benchmark must have a file like:
+    For each solver to be compared in the benchmark, one must write a file in the following manner:
 
     \begin{verbatim}
 ---
@@ -85,13 +85,13 @@ Problem01 exit01 time01
 Problem02 exit02 time02
     \end{verbatim}
 
-    In the YAML information you can set the name of the solver, and some
+    In the YAML information one can set the name of the solver and some
     flags for perprof-py.
-    Each line beyond that has 3 columns that mean, in order:
+    Each line beyond that has 3 columns. The columns meaning, in order, are:
     \begin{itemize}
       \item The name of the problem;
       \item Exit flag;
-      \item Cost measure, such as elapsed time.
+      \item Cost measure -- for instance, elapsed time.
     \end{itemize}
 
 \subsection*{Parsing process and output}
@@ -102,28 +102,26 @@ $ perprof OPTIONS BACKEND FILES
 \end{verbatim}
     where
     \begin{itemize}
-      \item FILES are the input files described in the previous section, and at
-        least two files are required;
+      \item FILES are the input files described in the previous section. At
+        least two files input are required;
       \item BACKEND is one of the options \verb+--tikz+, \verb+--mp+,
         \verb+--bokeh+ or
         \verb+--raw+, which represents whether the user wants to use
-        Tikz/Pgfplots, MatplotLib, Bokeh, or simply printing the performance
-        ratios, respectivly;
-      \item OPTIONS are varied arguments that can be passed to perprof to
-        customize the graphics, or modify the performance functions. Some
+        Tikz/PGFPLOTS, MatplotLib, Bokeh, or simply printing the performance
+        ratios, respectively;
+      \item OPTIONS are varied arguments that can be passed to perprof-py to
+        customize the graphics or modify the performance functions. Some
         noteworthy options are
         \begin{itemize}
-          \item \verb+--semilog+: use a logarithmic scale for the abscissa;
+          \item \verb+--semilog+: the natural logarithmic scale is used on the abscissa axis;
           \item \verb+--success STR+: \verb+STR+ is a comma separated string
-            of keys to be considered as success by the algorithm;
-          \item \verb+--black-and-white+: differentiate the plots using only
-            line styles, and paint them in black;
-          \item \verb+--subset FILE+: consider only the problems in the file
-            \verb+FILE+ when creating the performance functions.
+            of keys that was considered  \emph{success} by the solver;
+          \item \verb+--black-and-white+: perprof-py creates the plots using only
+            line styles and it colors them in black;
+          \item \verb+--subset FILE+: perprof-py considers only the subset problems listed in \verb+FILE+, while creating the performance functions.
         \end{itemize}
     \end{itemize}
-    The Figures \ref{fig:example1}-\ref{fig:example4} show some examples of the
-    performance profile graphics.
+    In order to demonstrate such OPTIONS, Figures \ref{fig:example1}-\ref{fig:example4} show some examples of  performance profile graphics. 
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.4\textwidth]{plots/abc.pdf}
