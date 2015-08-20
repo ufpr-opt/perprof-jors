@@ -154,3 +154,11 @@ $ perprof OPTIONS BACKEND FILES
     is captured. These tests are run automatically on Travis CI
     \cite{url:travis}, for Python 3.3 and 3.4.
     Functional tests related to the graphics must be done manually.
+    These tests use artifial solver information accessible using \verb+--demo+
+    as argument in the perprof-py call. The user can run a script that makes
+    several of these graphics in various formats by entering the folder
+    \verb+perprof/examples+ relative to the package folder, and running
+\begin{verbatim}
+./make-examples.sh
+\end{verbatim}
+    The folder \verb+plots+ will contain the outputs in formats PNG, PDF and HTML.
