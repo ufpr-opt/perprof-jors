@@ -16,6 +16,8 @@
     \end{align*}
     as the performance ratio of solver $s$ for the problem $p$ when compared
     with the best performance by any solver on this problem.
+    As a convention, we set $r_{ps}$ to a large value, let's say $r_{\max}$, if
+    the solver $s$ does not solve the problem $p$.
 
     \citeauthor{Dolan:2002du} define the probability of a solver $s \in \Sset$ to
     solve one problem within a factor $\tau \in \mathds{R}$ of the best
@@ -24,7 +26,15 @@
       \rho_s(\tau) = \frac{| \{p \in \Pset: r_{ps} \leq \tau\} |}{| \Pset |}
     \end{align*}
     For a given $\tau$, the best solver is the one with the highest value for
-    $\rho_s(\tau)$.
+    $\rho_s(\tau)$, that is, the one with the highest probability to solve the
+    problem.
+    The value $\rho_s(\tau)$ gives the percentage of problems solved by
+    algorithm $s$ with a cost at most $\tau$ times worst than the best
+    algorithm. $\rho_s(1)$ is the percentage of problems solved as fast as the
+    fastest algorithm, which gives the efficiency of solver $s$.
+    On the other hand $\displaystyle \lim_{\tau\rightarrow r^-_{\max}}
+    \rho_s(\tau)$ is the total percentage of problems solved by solver $s$, in
+    other words, the robustness of solver $s$.
 
 \subsection*{Motivation}
 
@@ -121,19 +131,26 @@ $ perprof OPTIONS BACKEND FILES
           \item \verb+--subset FILE+: perprof-py considers only the subset problems listed in \verb+FILE+, while creating the performance functions.
         \end{itemize}
     \end{itemize}
-    In order to demonstrate such OPTIONS, Figures \ref{fig:example1}-\ref{fig:example4} show some examples of  performance profile graphics. 
+    In order to demonstrate such OPTIONS, Figures \ref{fig:example1}-\ref{fig:example4} show some examples of  performance profile graphics.
+    Figure \ref{fig:example1} shows the performance profile graphic with default
+    options. Note that the lines are clumped due to the maximum time allowed
+    in the solver.
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.4\textwidth]{plots/abc.pdf}
       \caption{Example of performance profile with default options.}
       \label{fig:example1}
     \end{figure}
+    Figure \ref{fig:example2} shows the performance profile using the semilog
+    option, which plots the graphic using a log scale on the abscissa.
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.4\textwidth]{plots/abc-semilog.pdf}
       \caption{Example of performance profile with semilog option.}
       \label{fig:example2}
     \end{figure}
+    Figure \ref{fig:example3} shows the performance profile using also the black
+    and white option, which gives a printer-friendly graphic.
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.4\textwidth]{plots/abc-semilog-bw.pdf}
@@ -141,6 +158,10 @@ $ perprof OPTIONS BACKEND FILES
         options.}
       \label{fig:example3}
     \end{figure}
+    Fugre \ref{fig:example4} shows the performance profile using the subset
+    option in addition to previous options. In this case, we selected around 120
+    problems, put their names in a file, and passed the file with the option.
+    This limits the comparison to only those files.
     \begin{figure}[!ht]
       \centering
       \includegraphics[width=0.4\textwidth]{plots/abc-semilog-hs.pdf}
@@ -154,3 +175,11 @@ $ perprof OPTIONS BACKEND FILES
     is captured. These tests are run automatically on Travis CI
     \cite{url:travis}, for Python 3.3 and 3.4.
     Functional tests related to the graphics must be done manually.
+    These tests use artifial solver information accessible using \verb+--demo+
+    as argument in the perprof-py call. The user can run a script that makes
+    several of these graphics in various formats by entering the folder
+    \verb+perprof/examples+ relative to the package folder, and running
+\begin{verbatim}
+./make-examples.sh
+\end{verbatim}
+    The folder \verb+plots+ will contain the outputs in formats PNG, PDF and HTML.
