@@ -1,27 +1,36 @@
 \subsection*{Introduction}
 
-    The Performance Profile of a solver is the cumulative distribution
-    function of a performance metric, e.g., CPU time, number of functions
-    evaluations, number of iterations, or others, that we will call \emph{cost}.
+    When running an optimization solver on a set  $\Pset$ of problems, it is
+    usual to record   information of interest --- such as CPU time, number of
+    functions evaluations, number of iterations, or others --- which we will
+    reference as \emph{cost}. This process is called Benchmark.
 
-    It was first described by \textcite{Dolan:2002du} and is presented as a 
-    graphic that shows the relative performance profile of different solvers, 
-    according to a chosen metric, for a given set of problem instances.
+    Benchmarking an optimization software has been a necessity and some works
+    has showed that uncovered deficiencies in the software and has generally led
+    to software
+    improvements~\cite{url:mittelmann,Mittelmann:1999fb,Dolan:2006kl}.
+    In this sense, \textcite{Dolan:2002du} developed a tool to compare
+    optimization solvers benchmarks: the Performance Profile.
 
-    Given a set $\Pset$ of problems and a set $\Sset$ of solvers, for each 
-    problem $p \in \Pset$ and solver $s \in \Sset$, we define $t_{ps}$ as the  
+    The Performance Profile is a means to evaluate and compare the performance
+    of a set of solvers $\Sset$ on a test set $\Pset$. It is presented as a
+    graphic that shows the cumulative distribution function of different solvers
+    performances, according to the chosen cost metric, for a given set of
+    problem instances.
+
+    For each
+    problem $p \in \Pset$ and solver $s \in \Sset$, let $t_{ps}$ be the
     cost required to solve problem $p$ by solver $s$ and
     \begin{align*}
       r_{ps} = \frac{t_{ps}}{\min\{t_{ps}: s \in \Sset\}}
     \end{align*}
-    as the performance ratio of solver $s$ for the problem $p$ when compared
+    be the performance ratio of solver $s$ for the problem $p$ when compared
     with the best performance by any solver on this problem.
     As a convention, we set $r_{ps}$ to a large value, let's say $r_{\max}$, if
     the solver $s$ does not solve the problem $p$.
 
-    \citeauthor{Dolan:2002du} define the probability of a solver $s \in \Sset$ to
-    solve one problem within a factor $\tau \in \mathds{R}$ of the best
-    performance ratio as the function
+    The probability of a solver $s \in \Sset$  to solve one problem within a
+    factor $\tau \in \mathds{R}$ of the best performance ratio is the function
     \begin{align*}
       \rho_s(\tau) = \frac{| \{p \in \Pset: r_{ps} \leq \tau\} |}{| \Pset |}
     \end{align*}
@@ -46,18 +55,19 @@
     Performance profile has been, over the years, the most used benchmark
     comparison tool used in optimization. Nevertheless, the production of such
     analysis is sometimes a task that can lead a researcher to waste a lot of
-    time and effort that should have been spent in developing the solver itself,
-    and not in creating the comparison plots. The main goal of our work was to
-    create  a straightforward  tool that would allow one to create performance
-    profile pictures in a fast and easy manner.
+    time and effort that should have been spent in developing the solver
+    itself, and not in creating the comparison plots. The main goal of our work
+    was to create  a straightforward  tool that would allow one to create
+    performance profile pictures in a fast and easy manner.
 
     Moreover,  we wanted to allow \LaTeX\ users, a group in which almost all
-    optimization community is included,  to   generate performance profile plots
-    within \LaTeX\ environment, and thus to get a better typographic result other
-    than simple including raster  images.
+    optimization community is included,  to   generate performance profile
+    plots within \LaTeX\ environment, and thus to get a better typographic
+    result other than simple including raster  images.
 
     With these two main goals in mind, we developed and implemented perprof-py
-    in Python 3 with internationalization features and direct \LaTeX\ integration.
+    in Python 3 with internationalization features and direct \LaTeX\
+    integration.
 
 \subsection*{Implementation and architecture}
 
@@ -85,7 +95,8 @@
 
 \subsection*{Input}
 
-    For each solver to be compared in the benchmark, one must write a file in the following manner:
+    For each solver to be compared in the benchmark, one must write a file in
+    the following manner:
 
     \begin{verbatim}
 ---
@@ -123,15 +134,18 @@ $ perprof OPTIONS BACKEND FILES
         customize the graphics or modify the performance functions. Some
         noteworthy options are
         \begin{itemize}
-          \item \verb+--semilog+: the natural logarithmic scale is used on the abscissa axis;
+          \item \verb+--semilog+: the natural logarithmic scale is used on the
+          abscissa axis;
           \item \verb+--success STR+: \verb+STR+ is a comma separated string
             of keys that was considered  \emph{success} by the solver;
-          \item \verb+--black-and-white+: perprof-py creates the plots using only
-            line styles and it colors them in black;
+          \item \verb+--black-and-white+: perprof-py creates the plots using
+            only line styles and it colors them in black;
           \item \verb+--subset FILE+: perprof-py considers only the subset problems listed in \verb+FILE+, while creating the performance functions.
         \end{itemize}
     \end{itemize}
-    In order to demonstrate such OPTIONS, Figures \ref{fig:example1}-\ref{fig:example4} show some examples of  performance profile graphics.
+    In order to demonstrate such OPTIONS, Figures
+    \ref{fig:example1}-\ref{fig:example4} show some examples of  performance
+    profile graphics.
     Figure \ref{fig:example1} shows the performance profile graphic with default
     options. Note that the lines are clumped due to the maximum time allowed
     in the solver.
