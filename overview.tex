@@ -1,7 +1,7 @@
 \subsection*{Introduction}
 
     When running an optimization solver on a set  $\Pset$ of problems, it is
-    usual to record   information of interest --- such as CPU time, number of
+    usual to record information of interest --- such as CPU time, number of
     functions evaluations, number of iterations, or others --- which we will
     reference as \emph{cost}. This process is called Benchmark.
 
@@ -32,7 +32,7 @@
     The probability of a solver $s \in \Sset$  to solve one problem within a
     factor $\tau \in \mathds{R}$ of the best performance ratio is the function
     \begin{align*}
-      \rho_s(\tau) = \frac{| \{p \in \Pset: r_{ps} \leq \tau\} |}{| \Pset |}
+      \rho_s(\tau) = \frac{| \{p \in \Pset: r_{ps} \leq \tau\} |}{| \Pset |}.
     \end{align*}
     For a given $\tau$, the best solver is the one with the highest value for
     $\rho_s(\tau)$, that is, the one with the highest probability to solve the
@@ -41,8 +41,9 @@
     algorithm $s$ with a cost at most $\tau$ times worst than the best
     algorithm. $\rho_s(1)$ is the percentage of problems solved as fast as the
     fastest algorithm, which gives the efficiency of solver $s$.
-    On the other hand $\displaystyle \lim_{\tau\rightarrow r^-_{\max}}
-    \rho_s(\tau)$ is the total percentage of problems solved by solver $s$, in
+    On the other hand
+    \[\displaystyle \lim_{\tau\rightarrow r^-_{\max}} \rho_s(\tau)\]
+    is the total percentage of problems solved by solver $s$, in
     other words, the robustness of solver $s$.
 
 \subsection*{Motivation}
