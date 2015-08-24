@@ -16,21 +16,19 @@
     In this sense, \textcite{Dolan:2002du} developed a tool to compare
     optimization solvers benchmarks: the \emph{performance profile}.
 
-    The performance profile is a means to evaluate and compare the performance
-    of a set of solvers $\Sset$ on a test set $\Pset$. It is presented as a
+    The performance profile is a tool to evaluate and compare the performance
+    of a set $\Sset$ of solvers  on a given test set $\Pset$. It is presented as a
     graphic that shows the cumulative distribution function of different solvers
-    performances, according to the chosen cost metric.
-    This comparison is mostly used for nonlinear optimization solvers, but we
-    believe this exclusivity is due to little divulgation outside the field.
-    Nothings stops an interested party to extend the tool to another kind of
-    problem solving software.
-    The usual cost is the CPU time used, but other possibilities are valid.
-    Note that, in some cases, a specialized test can be more significant than
+    performances, according to a chosen cost metric.
+
+    This comparison method is mostly used for nonlinear optimization solvers, however we
+    believe this is due to unacknowledged of this tool outside that field.
+    It is possible, if one requires, to extend performance profile to compare softwares that solve any kind of problem.  The usual cost used is the CPU time, however other possibilities are valid.  Notice that, in some cases, a specialized test can be more significant than
     the performance profile with a specific cost.
     For derivative-free optimization, for instance,
     \textcite{More:2009benchmarking} define a \emph{data profile}, using the
-    number of function evaluations as the cost metric, but in a different way
-    that the performance profile is defined.
+    number of function evaluations as the metric cost, nevertheless in a different way
+    of performance profile definition.
 
     For each
     problem $p \in \Pset$ and solver $s \in \Sset$, let $t_{p,s}$ be the
@@ -76,7 +74,7 @@
     There are third part implementations to generate the performance profile.
     The same group that created the performance profile released a MATLAB
     script in their website~\cite{url:cops}. There is also a module written by
-    Michal Friedlander inside
+    Michael Friedlander inside
     NLPy~\cite{url:NLPy} that is able to produce the performance profile.
     However, there are features that some users need that those softwares did
     not implement.
