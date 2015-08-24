@@ -7,9 +7,12 @@ The backends are classes that extend {\tt Pdata} defining a method {\tt plot}
 which creates the expected figure.
 The user shall have little difficult creating his own backend, specially if he
 uses one of our own as a starting point.
+However, if the user wants to change the definition of the profile data (as in
+to try to implement the data profile), we would have modify the {\tt Pdata}
+directly or re-implement the backends.
 
 Our parser opens the input files and creates the information for {\tt Pdata}.
-Replacing this parser (for use with out backends) would not be so easy
+Replacing this parser (for use with our backends) would not be so easy
 because the user would have to create the correct output format.  However,
 extending it with additional options would be simple enough.
 
