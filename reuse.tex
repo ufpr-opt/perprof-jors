@@ -13,14 +13,16 @@ Replacing this parser (for use with out backends) would not be so easy
 because the user would have to create the correct output format.  However,
 extending it with additional options would be simple enough.
 
-Our binary {\tt perprof-py} essentially collects the options from the command
+Our entry point {\tt perprof-py} essentially collects the options from the command
 line and calls the specific backend profiler. This can be completely bypassed
 by calling the backend directly. This allows the user to create a performance
 profile from another python application. In particular, one possibility is the
-creation of a graphical user interface (GUI). The modularity of the package
+creation of a graphical user interface (GUI)
+or a web server application. The modularity of the package
 allows whoever desires to construct this interface to focus entirely on
 obtaining the options from the user and passing it to the backend.
 
 Whether you're planning on expanding some of our functionalities or creating any
 new backend or interface, please connect with us through our project page on
 Github~\cite{url:perprof-py}.
+
