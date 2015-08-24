@@ -1,11 +1,28 @@
-Performance profile graphics are widely used in the nonlinear optimization
-community being the most accepted comparison method.
-Nevertheless, on some derivative-free optimization researches,  a new data-driven comparison is being used,
-the Data Profile \cite{bib:more2009benchmarking} which is a modification of 
-\citeauthor{Dolan:2002du}'s performance profile, and that we consider to add to our code. 
-\textcite{bib:mahajan2012solving} also improves the performance profile by considering
-a performance ratio between 0 and 1, and this improvement is also marked for
-future additions. Even without these additions, our software is sure to be a great addition for
-researchers on the optimization community.
+We have separated our implementation in a way that facilitates the creation of a
+new backend.
+We define a class {\tt Pdata} which stores the parsed data ($\mathcal{P}$,
+$\mathcal{S}$, $t_{s,p}$, etc.) and define methods to create the profile data
+$r_{p,s}$.
+The backends are classes that extend {\tt Pdata} defining a method {\tt plot}
+which creates the expected figure.
+The user shall have little difficult creating his own backend, specially if he
+uses one of our own as a starting point.
 
-For additional support related to perprof-py, visit the project page on Github~\cite{url:perprof-py}. 
+Our parser opens the input files and creates the information for {\tt Pdata}.
+Replacing this parser (for use with out backends) would not be so easy
+because the user would have to create the correct output format.  However,
+extending it with additional options would be simple enough.
+
+Our entry point {\tt perprof-py} essentially collects the options from the command
+line and calls the specific backend profiler. This can be completely bypassed
+by calling the backend directly. This allows the user to create a performance
+profile from another python application. In particular, one possibility is the
+creation of a graphical user interface (GUI)
+or a web server application. The modularity of the package
+allows whoever desires to construct this interface to focus entirely on
+obtaining the options from the user and passing it to the backend.
+
+Whether you're planning on expanding some of our functionalities or creating any
+new backend or interface, please connect with us through our project page on
+Github~\cite{url:perprof-py}.
+
