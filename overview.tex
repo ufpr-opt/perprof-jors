@@ -98,17 +98,17 @@
 \subsection*{Implementation and architecture}
 
     The software was implemented as a Python 3 package
-    and organized
-    to allow addition of new backends --  see Figure~\ref{fig:uml}.
+    and organized to allow addition of new backends.
+    The core files are
+    \begin{itemize}
+      \item {\tt perprof/prof.py} that defines a class {\tt Pdata} that need to
+        be extend for every backend;
+      \item {\tt perprof/parse.py} that has the parser for the input files; and
+      \item {\tt perprof/main.py} that has the command line interface.
+    \end{itemize}
+
     Users have a command line interface to use out of the box,
     however one can also use the package in their own software.
-
-    \begin{figure}[!htb]
-      \centering
-      \includegraphics[width=0.45\textwidth]{uml/uml.pdf}
-      \caption{UML of perprof}
-      \label{fig:uml}
-    \end{figure}
 
     The implementation is very straightforward. The algorithm:
     \begin{enumerate}
