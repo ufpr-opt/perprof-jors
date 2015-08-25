@@ -132,14 +132,47 @@ Problem01 exit01 time01
 Problem02 exit02 time02
     \end{verbatim}
 
-    In the YAML information one can set the name of the solver and some
+    The YAML\cite{url:yaml,url:pyyaml} information is a list of keywords and values used to
+    set the name of the solver and some
     flags for perprof-py.
-    Each line beyond that has 3 columns. The columns meaning, in order, are:
+    A legacy option remains in which the user can instead put only name of the
+    solver using
+\begin{verbatim}
+#Name SOLVERNAME
+Problem01 exit01 time01
+Problem02 exit02 time02
+\end{verbatim}
+    but we believe that users will like to add more options.
+
+    Each line of data has at least 3 columns.
+    The columns' meaning, in a default order, are:
     \begin{itemize}
       \item The name of the problem;
       \item Exit flag;
       \item Cost measure -- for instance, elapsed time.
     \end{itemize}
+    The default exit flag is to have {\tt c} or {\tt d} on the exit flag
+    columns, meaning convergence or divergence, respectively.
+
+    One of our example solvers uses the following YAML information
+\begin{verbatim}
+algname: Alpha
+success: converged
+free_format: True
+\end{verbatim}
+    which means that the name appearing on the profile will be {\tt Alpha};
+    that {\tt converged} is the word that means convergence,
+    and that every other exit flag word means divergence.
+    These options were set from {\tt algname}, {\tt success} and {\tt
+    free\_format} options, respectively.
+
+    The user can, optionally, add more columns to give additional information.
+    He can verify, for instance, that the optimality conditions are satisfied
+    for each problem.
+    Also, using the YAML or the command line options, he can change the
+    meaning of each columns.
+    Note that these options are not enabled by default. The user should consult
+    the help and documentation to see how this to enablem them.
 
 \subsection*{Parsing process and output}
 
