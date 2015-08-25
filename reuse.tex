@@ -5,11 +5,11 @@ $\mathcal{S}$, $t_{s,p}$, etc.) and define methods to create the profile data
 $r_{p,s}$.
 The backends are classes that extend {\tt Pdata} defining a method {\tt plot}
 which creates the expected figure.
-The user shall have little difficult creating his own backend, specially if he
+The user shall have little difficulty creating his own backend, specially if he
 uses one of our own as a starting point.
 However, if the user wants to change the definition of the profile data (as in
-to try to implement the data profile), we would have modify the
-{\tt set_percent_problems_solved_by_time} method of {\tt Pdata}
+to try to implement the data profile), he would have modify the
+{\tt set\_percent\_problems\_solved\_by\_time} method of {\tt Pdata}
 directly or re-implement the backends.
 
 Our parser opens the input files and creates the information for {\tt Pdata}.
