@@ -65,7 +65,7 @@
 \subsection*{Motivation}
 
     To facilitate the reproduction of data set analysis, such as the
-    benchmarking of solvers analysis provided by \citeauthor{Dolan:2002du}'s
+    benchmarking of solvers analysis provided by \textcite{Dolan:2002du}'s
     performance profile, it is important to have an open source tool that handle
     the production of plots.
 
@@ -75,24 +75,33 @@
     of time and effort that should have been spent in developing the solver
     itself.
 
-    There are third part implementations to generate the performance profile.
-    The same group that created the performance profile released a MATLAB
-    script in their website~\cite{url:cops}. There is also a module written by
+    Is it noteworthy to mention that other
+    implementations were made to generate the performance profile,
+    some of them being reasonable well-known, such as a MatLab
+    script\cite{url:cops} from
+    the same group that created the performance profile,
+    and a module written by
     Michael Friedlander inside
-    NLPy~\cite{url:NLPy} that is able to produce the performance profile.
+    NLPy~\cite{url:NLPy}.
+    Some people, possibly unaware of these implementations, or avoiding
+    proprietary solutions, made their own implementation and then made them
+    available, such as a Python function perfprof from \textcite{url:perfprof},
+    a small Julia module perfprof.jl from \textcite{url:perfprofjl}, both
+    language dependent, and we're sure that a through search would reveal many
+    others.
     However, there are features that some users need that those softwares did
     not implement.
-
-    We thus designed a straightforward tool that allows one to create
+    We thus designed a straightforward tool that allows the creation of
     performance profile pictures in a fast and easy manner.
 
-    In addition, this tool would allow \LaTeX\ users, a group in which almost
+    In addition, this tool would allow LaTeX users, a group in which almost
     all optimization community is included, to generate performance profile
-    plots within \LaTeX\ environment, and thus to get a better typographic
-    result other than simple including raster  images.
+    plots as LaTeX code that will be processed later
+    with the rest of their document
+    or standalone PDF when needed.
 
     With these two main goals in mind, we developed and implemented perprof-py
-    in Python 3 with internationalization features and direct \LaTeX\
+    in Python 3 with internationalization features and direct LaTeX
     integration.
 
 \subsection*{Implementation and architecture}
@@ -176,7 +185,7 @@ free_format: True
     Also, using the YAML or the command line options, he can change the
     meaning of each columns.
     Note that these options are not enabled by default. The user should consult
-    the help and documentation to see how this to enablem them.
+    the help and documentation to see how to enable them.
 
 \subsection*{Parsing process and output}
 
@@ -191,7 +200,7 @@ $ perprof OPTIONS BACKEND FILES
       \item BACKEND is one of the options \verb+--tikz+, \verb+--mp+,
         \verb+--bokeh+ or
         \verb+--raw+, which represents whether the user wants to use
-        Tikz/PGFPLOTS, MatplotLib, Bokeh, or simply printing the performance
+        TikZ/PGFPLOTS, matplotlib, Bokeh, or simply printing the performance
         ratios, respectively;
       \item OPTIONS are varied arguments that can be passed to perprof-py to
         customize the graphics or modify the performance functions. Some
@@ -252,7 +261,7 @@ $ perprof OPTIONS BACKEND FILES
     is captured. These tests are run automatically on Travis CI
     \cite{url:travis}, for Python 3.3 and 3.4.
     Functional tests related to the graphics must be done manually.
-    These tests use artifial solver information accessible using \verb+--demo+
+    These tests use artificial solver information accessible using \verb+--demo+
     as argument in the perprof-py call. The user can run a script that makes
     several of these graphics in various formats by entering the folder
     \verb+perprof/examples+ relative to the package folder, and running
