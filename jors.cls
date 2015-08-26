@@ -34,6 +34,8 @@
 
 \newcommand{\colorsection}[1]
   {\colorbox{cyan!50!white}{\parbox{\dimexpr\columnwidth-2\fboxsep}{(\thesection) #1}}}
+\newcommand{\colorsectionnumberless}[1]
+  {\colorbox{cyan!50!white}{\parbox{\dimexpr\columnwidth-2\fboxsep}{#1}}}
 \newcommand{\bfandit}[1]{\textbf{\textit{#1}}}
 
 \titleformat{\section}{\normalsize \bf}{}{0pt}{\colorsection}
