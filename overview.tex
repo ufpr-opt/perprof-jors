@@ -65,7 +65,7 @@
 \subsection*{Motivation}
 
     To facilitate the reproduction of data set analysis, such as the
-    benchmarking of solvers analysis provided by \citeauthor{Dolan:2002du}'s
+    benchmarking of solvers analysis provided by \textcite{Dolan:2002du}'s
     performance profile, it is important to have an open source tool that handle
     the production of plots.
 
@@ -75,15 +75,23 @@
     of time and effort that should have been spent in developing the solver
     itself.
 
-    There are third part implementations to generate the performance profile.
-    The same group that created the performance profile released a MATLAB
-    script in their website~\cite{url:cops}. There is also a module written by
+    Is it noteworthy to mention that other
+    implementations were made to generate the performance profile,
+    some of them being reasonable well-known, such as a MatLab
+    script\cite{url:cops} from
+    the same group that created the performance profile,
+    and a module written by
     Michael Friedlander inside
-    NLPy~\cite{url:NLPy} that is able to produce the performance profile.
+    NLPy~\cite{url:NLPy}.
+    Some people, possibly unaware of these implementations, or avoiding
+    proprietary solutions, made their own implementation and then made them
+    available, such as a Python function perfprof from \textcite{url:perfprof},
+    a small Julia module perfprof.jl from \textcite{url:perfprofjl}, both
+    language dependent, and we're sure that a through search would reveal many
+    others.
     However, there are features that some users need that those softwares did
     not implement.
-
-    We thus designed a straightforward tool that allows one to create
+    We thus designed a straightforward tool that allows the creation of
     performance profile pictures in a fast and easy manner.
 
     In addition, this tool would allow LaTeX users, a group in which almost
