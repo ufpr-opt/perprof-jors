@@ -3,7 +3,8 @@
     When creating a software, it is usual to evaluate it regarding a set of
     information of interest
     --- such as CPU time, number of
-    functions evaluations, number of iterations, or others --- which we will
+    functions evaluations, number of iterations, memory usage, accuracy, or
+    others --- which we will
     reference as \emph{cost}. This process is called Benchmarking.
 
     Benchmarking is a necessity as it
@@ -22,12 +23,13 @@
     solvers performances, according to a chosen cost metric.
     It is noteworthy to say that the cost metric must be positive.
 
-    This comparison method is mostly used for nonlinear optimization solvers, 
-    however we believe this is due to unacknowledged of this tool outside that
-    field.
-    It is possible, if one requires, to extend performance profile to compare  
-    softwares that solve any kind of problem.  The usual cost used is the CPU 
-    time, however other possibilities are valid.  Notice that, in some cases, a
+    This comparison method is mostly used for nonlinear optimization solvers,
+    however, it is possible to extend the performance profile to compare
+    softwares that solve any kind of problem.
+    For instance, some authors have used it in the context of algorithms for
+    matrix functions (\cite{al-mohy:2009, al-mohy:2011, al-mohy:2012,
+    higham:2005, higham:2009, higham:2011, higham:2013}).
+    Notice that, in some cases, a
     specialized test can be more significant than the performance profile with
     a specific cost.  For derivative-free optimization, for instance,
     \textcite{More:2009benchmarking} define a \emph{data profile}, using the
