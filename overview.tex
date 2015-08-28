@@ -270,10 +270,11 @@ $ perprof OPTIONS BACKEND FILES
     as argument in the perprof-py call.
     For instance, to test that the Tikz installation is successful, one can run
 \begin{verbatim}
-perprof-py --demo -o /tmp/tmp --tikz
+perprof-py --demo -o tmp --tikz
 \end{verbatim}
-    If everything is correct, this will generate file /tmp/tmp.pdf with an
-    example performance profile.
+    If everything is correct, this will generate a file \verb+tmp.pdf+ with an
+    example performance profile made using LaTeX and compiled to a standalone
+    PDF.
 
     The user can run the testing script
     by entering the folder
