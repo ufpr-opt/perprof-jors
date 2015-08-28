@@ -262,12 +262,24 @@ $ perprof OPTIONS BACKEND FILES
     The code is tested using unit tests that verify if wrong input information
     is captured. These tests are run automatically on Travis CI
     \cite{url:travis}, for Python 3.3 and 3.4.
-    Functional tests related to the graphics must be done manually.
-    These tests use artificial solver information accessible using \verb+--demo+
-    as argument in the perprof-py call. The user can run a script that makes
-    several of these graphics in various formats by entering the folder
+    In addition we also run a script to generate several performance profile
+    graphics. This script is also run on Travis CI, however, we can only verify
+    that it outputs the desired graphics locally.
+
+    This script uses artifial solver information accessible using \verb+--demo+
+    as argument in the perprof-py call.
+    For instance, to test that the TikZ installation is successful, one can run
+\begin{verbatim}
+perprof-py --demo -o tmp --tikz
+\end{verbatim}
+    If everything is correct, this will generate a file \verb+tmp.pdf+ with an
+    example performance profile made using LaTeX and compiled to a standalone
+    PDF.
+
+    The user can run the testing script
+    by entering the folder
     \verb+perprof/examples+ relative to the package folder, and running
 \begin{verbatim}
 ./make-examples.sh
 \end{verbatim}
-    The folder \verb+plots+ will contain the outputs in formats PNG, PDF and HTML.
+    The folder \verb+plots+ will contain the outputs in formats PNG and PDF.
