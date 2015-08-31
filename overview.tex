@@ -8,14 +8,15 @@
     the performance  information of a software relative to similar ones.
     
     This is a necessity when developing programs since it
-    helps uncover deficiencies software and usually leads
+    helps uncover software deficiencies  and usually leads
     to general software improvements~\cite
     {url:mittelmann,Mittelmann:1999fb,Dolan:2006kl}.
 
-    Furthermore, given a set of softwares to solve the same problem, one could
-    compare them to choose the best one, or verify how his own software can be
-    improved. In this sense, \textcite{Dolan:2002du} developed a tool to 
-    visualize optimization solvers benchmarks: the \emph{performance profile}.
+    Furthermore, given a set of softwares that solve the same problem, one 
+    could compare them in order to choose the best one, or verify how their own
+    software can be improved. In this sense, \textcite{Dolan:2002du} developed 
+    a tool to visualize optimization solvers benchmarks: the 
+    \emph{performance profile}.
 
     Formally,  performance profile allows one to evaluate and compare the
     performance
@@ -27,9 +28,8 @@
     solvers performances, according to the chosen cost metric.
     Notice that cost metric must be positive.
 
-    This comparison method is mostly used for nonlinear optimization solvers,
-    however, its extension is possible in order to compare
-    softwares that solve other problems.
+    This  method is mostly used for nonlinear optimization solvers,
+    however, it is possible to extend it to other software comparison.
     For instance, some authors have used it in the context of algorithms for
     matrix functions \cite{al-mohy:2009, al-mohy:2011, al-mohy:2012,
     higham:2005, higham:2009, higham:2011, higham:2013}.
@@ -48,7 +48,7 @@
     \end{align*}
     be the performance ratio of solver $s$ for the problem $p$ when compared
     with the best performance by any solver on this problem.
-    As a convention, we set $r_{p,s}$ to a large value, let's say $r_{\max}$, if
+    As a convention, we set $r_{p,s}$ to a large value, say $r_{\max}$, if
     the solver $s$ does not solve the problem $p$.
 
     The probability of a solver $s \in \Sset$  to solve one problem within a
@@ -60,12 +60,12 @@
     $\rho_s(\tau)$, that is, the one with the highest probability to solve the
     problem.
     The value $\rho_s(\tau)$ represents the percentage of problems solved by
-    algorithm $s$ with a cost at most $\tau$ times worst than the best
+    algorithm $s$ with a cost at most $\tau$ times worse than the best
     algorithm. $\rho_s(1)$ is the percentage of problems solved as fast as the
     fastest algorithm, which gives the efficiency of solver $s$.
     On the other hand
     \[\displaystyle \lim_{\tau\rightarrow r^-_{\max}} \rho_s(\tau)\]
-    is the total percentage of problems solved by solver $s$, in
+    is the total percentage of problems solved by solver $s$, or in
     other words, the robustness of solver $s$.
 
 \subsection*{Motivation}
@@ -84,11 +84,9 @@
     There are other
     implementations to generate  performance profiles,
     some of them being reasonable well-known, such as a MatLab
-    script\cite{url:cops} from
-    the same group that created  performance profile,
-    and a module written by
-    Michael Friedlander inside
-    NLPy~\cite{url:NLPy}.
+    script from
+    the same group that created  performance profile~\cite{url:cops},
+    and a module written by Michael Friedlander inside NLPy~\cite{url:NLPy}.
 
     Some, perhaps unaware of these implementations or trying to avoid
     proprietary solutions, implemented their own solutions and then made
@@ -132,7 +130,7 @@
     Users have a command line interface to use out of the box,
     however one can also use the package in their own software.
 
-    Implementation is very straightforward. In fact, algorithm:
+    Implementation is very straightforward. In fact, the algorithm:
     \begin{enumerate}
       \item parses the options passed as arguments, creating a
         structure with all  information;
@@ -164,7 +162,7 @@ Problem02 exit02 time02
 Problem01 exit01 time01
 Problem02 exit02 time02
 \end{verbatim}
-    however some users  will possibly like to
+    nevertheless some users  will possibly like to
     add more options.
 
     Each line of data has at least 3 columns.
@@ -267,11 +265,11 @@ $ perprof OPTIONS BACKEND FILES
 
 \subsection*{Quality control}
 
-    Code is tested using unit tests that verify if wrong input information
-    is captured. These tests are run automatically on Travis CI
+    Perprof-py code is tested using unit tests that verify if wrong input
+    information is captured. These tests are run automatically on Travis CI
     \cite{url:travis}, for Python 3.3 and 3.4.
     In addition, also a script is run to generate several performance profile
-    graphics. This script is also run on Travis CI, however the evaluation 
+    graphics. This script is also run on Travis CI, though the evaluation
     that perprof-py outputs the desired  graphics can be done only locally.
 
     This script uses artificial solver information accessible using \verb+--demo+

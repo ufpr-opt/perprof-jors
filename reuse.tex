@@ -5,11 +5,10 @@ $\mathcal{S}$, $t_{s,p}$, etc.) and  methods are defined to create the profile d
 $r_{p,s}$.
 Backends are classes that extend {\tt Pdata} defining a method {\tt plot}
 which creates the expected figure.
-One shall have little difficulty creating his own backend, specially if he
-uses one of perprof-py own as a starting point.
-However, if a user wants to change the profile data definition --- as
-to implement  data profile (see \cite{bib:more2009benchmarking}) ---, he would have to modify
-one or more methods in {\tt Pdata} directly or re-implement the backends.
+One shall have little difficulty creating their own backend, specially if one
+uses a perprof-py backend as a starting point.
+However, if one wants to change the profile data definition --- as
+to implement  data profile (see \cite{bib:more2009benchmarking}) ---, one would have to modify one or more methods in {\tt Pdata} directly or re-implement the backends.
 
 Parser opens the input files and creates the information for {\tt Pdata}.
 Replacing this parser --- to use with perprof-py backends --- would not be an easy task
