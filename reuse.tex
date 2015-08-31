@@ -1,31 +1,30 @@
-The implementation is separated in a way that facilitates the creation of a
+Implementation is separated in a way that facilitates the creation of a
 new backend.
-Class {\tt Pdata} is defined which stores the parsed data ($\mathcal{P}$,
+Class {\tt Pdata} is defined to store the parsed data ($\mathcal{P}$,
 $\mathcal{S}$, $t_{s,p}$, etc.) and  methods are defined to create the profile data
 $r_{p,s}$.
-The backends are classes that extend {\tt Pdata} defining a method {\tt plot}
+Backends are classes that extend {\tt Pdata} defining a method {\tt plot}
 which creates the expected figure.
-The user shall have little difficulty creating his own backend, specially if he
-uses one of our own as a starting point.
-However, if the user wants to change the definition of the profile data --- as
-to implement the data profile (see \cite{bib:more2009benchmarking}) ---, he would have to modify
-one or more methods in {\tt Pdata} directly or re-implement the backends.
+One shall have little difficulty creating their own backend, specially if one
+uses a perprof-py backend as a starting point.
+However, if one wants to change the profile data definition --- as
+to implement  data profile (see \cite{bib:more2009benchmarking}) ---, one would have to modify one or more methods in {\tt Pdata} directly or re-implement the backends.
 
-The parser opens the input files and creates the information for {\tt Pdata}.
-Replacing this parser --- for use with perprof-py backends --- would not be that easy
-because the user would have to create the correct output format.  However,
+Parser opens the input files and creates the information for {\tt Pdata}.
+Replacing this parser --- to use with perprof-py backends --- would not be an easy task
+since the correct output format should be created.  Nevertheless,
 extending it with additional options would be simple enough.
 
-The entry point {\tt perprof-py} essentially collects the options from the command
+Entry point {\tt perprof-py} essentially collects the options from the command
 line and calls the specific backend profiler. This can be completely bypassed
-by calling the backend directly. This allows the user to create a performance
-profile from another python application. In particular, one possibility is the
+by calling the backend directly. This allows one to create a performance
+profile from another python application. In particular, a possibility is the
 creation of a graphical user interface (GUI)
-or a web server application. The modularity of the package
+or a web server application. Perprof-py modularity 
 allows whoever desires to construct this interface to focus entirely on
 obtaining the options from the user and passing it to the backend.
 
 Whether one is planning on expanding some of perprof-py functionalities or creating any
-new backend or interface, he should contact the authors using the project page on
+new backend or interface, one can contact the authors using the project page on
 GitHub~\cite{url:perprof-py}.
 
