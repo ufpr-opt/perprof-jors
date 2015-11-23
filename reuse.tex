@@ -1,21 +1,21 @@
-Implementation is separated in a way that facilitates the creation of a
+The implementation of perfprof-py is separated in a way that facilitates the creation of a
 new backend.
-Class {\tt Pdata} is defined to store the parsed data ($\mathcal{P}$,
+The class {\tt Pdata} is defined to store the parsed data ($\mathcal{P}$,
 $\mathcal{S}$, $t_{s,p}$, etc.) and  methods are defined to create the profile data
 $r_{p,s}$.
 Backends are classes that extend {\tt Pdata} defining a method {\tt plot}
 which creates the expected figure.
-One shall have little difficulty creating their own backend, specially if one
+One should have little difficulty creating their own backend, specially if one
 uses a perprof-py backend as a starting point.
-However, if one wants to change the profile data definition --- as
-to implement  data profile (see \cite{bib:more2009benchmarking}) ---, one would have to modify one or more methods in {\tt Pdata} directly or re-implement the backends.
+However, if one wants to change the profile data definition --- in order
+to implement a data profile (see \cite{bib:more2009benchmarking}) ---, one would have to modify one or more methods in {\tt Pdata} directly or re-implement the backends.
 
-Parser opens the input files and creates the information for {\tt Pdata}.
+The parser opens the input files and creates the information for {\tt Pdata}.
 Replacing this parser --- to use with perprof-py backends --- would not be an easy task
 since the correct output format should be created.  Nevertheless,
 extending it with additional options would be simple enough.
 
-Entry point {\tt perprof-py} essentially collects the options from the command
+The entry point {\tt perprof-py} essentially collects the options from the command
 line and calls the specific backend profiler. This can be completely bypassed
 by calling the backend directly. This allows one to create a performance
 profile from another python application. In particular, a possibility is the
