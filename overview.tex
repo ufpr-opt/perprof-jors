@@ -1,24 +1,24 @@
 \subsection*{Introduction}
 
-    When creating a software,  measuring a set of
+    When creating a piece of software, the measurement of a set of
     information of interest regarding performance
     --- for instance: CPU time, number of
-    functions evaluations, number of iterations, memory usage, accuracy, or
-    others --- is very usual.   \emph{Benchmarking} is the process of measuring
-    the performance  information of a software relative to similar ones.
+    functions evaluated, number of iterations, memory usage, accuracy, or
+    others --- is common.   \emph{Benchmarking} is the process of measuring
+    the performance information of one piece of software relative to similar software.
     
-    This is a necessity when developing programs since it
+    This is necessary when developing programs since it
     helps uncover software deficiencies  and usually leads
     to general software improvements~\cite
     {url:mittelmann,Mittelmann:1999fb,Dolan:2006kl}.
 
-    Furthermore, given a set of softwares that solve the same problem, one 
+    Furthermore, given a set of software that solve the same problem, one 
     could compare them in order to choose the best one, or verify how their own
-    software can be improved. In this sense, \textcite{Dolan:2002du} developed 
+    software can be improved. To address this, \textcite{Dolan:2002du} developed 
     a tool to visualize optimization solvers benchmarks: the 
     \emph{performance profile}.
 
-    Formally,  performance profile allows one to evaluate and compare the
+    Formally, a performance profile allows one to evaluate and compare the
     performance
     of a set $\Sset$ of solvers  on a given test set $\Pset$, with respect
     to a chosen evaluation parameter,
@@ -26,7 +26,7 @@
     It is presented as
     a graphic that shows the cumulative distribution function of different
     solvers performances, according to the chosen cost metric.
-    Notice that cost metric must be positive.
+    Note that the cost metric must be positive.
 
     This  method is mostly used for nonlinear optimization solvers,
     however, it is possible to extend it to other software comparison.
@@ -72,7 +72,7 @@
 
     To facilitate the reproduction of data set analysis, such as 
     benchmarking of solvers analysis provided by \textcite{Dolan:2002du}'s
-    performance profile,  an open source tool that handle
+    performance profile,  an open source tool that handles
     the production of performance profile plots should be available.
 
     Performance profile has been, over the years, the most used benchmark
@@ -95,14 +95,14 @@
     {url:perfprof}
     and a  Julia module {\tt perfprof.jl} from \textcite{url:perfprofjl}, 
     both language dependent. A thorough search would possibly reveal many
-    others.  However, there are features that some users need that those softwares have
+    others.  However, there are features that some users need that these software have
     not implemented.
 
-    In this work, it is described a straightforward open source tool that
+    This paper describes a straightforward open source tool that
     allows  one to create  performance profile pictures in a fast and easy
     manner called perprof-py.
-    In addition, this tool  allows LaTeX users, a group in which almost
-    all optimization community is included, to generate performance profile
+    In addition, this tool  allows LaTeX users, a group which includes almost
+    all of the optimization community, to generate performance profile
     plots as LaTeX code that will be processed later  with the rest of their document 
     or standalone PDF when needed.
 
@@ -122,7 +122,7 @@
       \item {\tt perprof/main.py} that has the command line interface.
     \end{itemize}
 
-    Incompatibility of perprof-py  with Python 2
+    The incompatibility of perprof-py  with Python 2
     was due (i) to the fact that unicode processing with Python 2 can be a
     nightmare, and
     (ii) to the authors' desire to push Python 3 forward.
@@ -134,7 +134,7 @@
     \begin{enumerate}
       \item parses the options passed as arguments, creating a
         structure with all  information;
-      \item parses and process  input files, using  
+      \item parses and process  input files, using the 
          performance function definition to create  data to be plotted;
       \item uses the chosen backend to plot  data.
     \end{enumerate}
@@ -162,11 +162,11 @@ Problem02 exit02 time02
 Problem01 exit01 time01
 Problem02 exit02 time02
 \end{verbatim}
-    nevertheless some users  will possibly like to
+    nevertheless some users  may like to
     add more options.
 
     Each line of data has at least 3 columns.
-    Columns' meanings, in a default order, are:
+    Columns' meanings, in the default order, are:
     \begin{itemize}
       \item Problem's name;
       \item Exit flag;
@@ -175,7 +175,7 @@ Problem02 exit02 time02
     Default exit flag is  {\tt c} or {\tt d} on the exit flag
     column, meaning convergence or divergence, respectively.
 
-    One of perprof-py solver examples  uses the following YAML information
+    One of the perprof-py solver examples  uses the following YAML information
 \begin{verbatim}
 algname: Alpha
 success: converged
@@ -188,12 +188,12 @@ free_format: True
     free\_format} options, respectively.
 
     A user can, optionally, add more columns to add information.
-    He can verify, for instance, that the optimality conditions are satisfied
+    They can verify, for instance, that the optimality conditions are satisfied
     for each problem.
-    Also, using  either YAML or command line options,  user can change each
+    Also, using  either YAML or command line options, a user can change each
     columns' meaning.
-    Notice that these options are not enabled by default. The user should
-    consult  help and documentation files to see how to enable them.
+    Note that these options are not enabled by default. The user should
+    consult the help and documentation files to see how to enable them.
 
 \subsection*{Parsing process and output}
 
@@ -266,12 +266,12 @@ $ perprof OPTIONS BACKEND FILES
 
 \subsection*{Quality control}
 
-    Perprof-py code is tested using unit tests that verify if wrong input
+    Perprof-py code is tested using unit tests that verify if incorrect input
     information is captured. These tests are run automatically on Travis CI
     \cite{url:travis}, for Python 3.3 and 3.4.
-    In addition, also a script is run to generate several performance profile
+    In addition, a script is run to generate several performance profile
     graphics. This script is also run on Travis CI, though the evaluation
-    that perprof-py outputs the desired  graphics can be done only locally.
+    that perprof-py outputs the desired  graphics can only be done locally.
 
     This script uses artificial solver information accessible using \verb+--demo+
     as argument in the perprof-py call.
